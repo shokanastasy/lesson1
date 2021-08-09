@@ -1,5 +1,6 @@
 package ru.geekbrains.lesson2;
-public class HomeWork2 {
+
+public class HW2 {
     public static void main(String[] args) {
         boolean result = isSumBtw10And20(4, 10);
         System.out.println(result);
