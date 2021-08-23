@@ -1,17 +1,28 @@
-public class Cat extends Animal{
-    Cat (String name, int runDist, int swimDist) {
-        super(name, runDist, swimDist);
+public class Cat {
+    private String name;
+    private int appetite;
+    private boolean fullness;
+
+    public Cat(String name, int appetite) {
+        this.name = name;
+        this.appetite = appetite;
+        fullness = false;
     }
-    void run () {
-        if (runDist >= 200) {
-            System.out.println(name + " " + "не может пробежать более 200 метров");
-        }
-    else {
-                System.out.println(name + " " + "пробежал" + " " + runDist + " " + " " + "метров");
-            }
-        }
-    void swim ()
-        {
-            System.out.println(name + " " + "это кот, а коты плавать не умеют");
-        }
+
+    public void eat(Plate plate) {
+       if (plate.itsOkforFood(appetite) && !fullness)
+       {
+           System.out.println(name + " " + "кушает");
+           plate.desreaseFood(appetite);
+           fullness = true;
+       }
+       else if (!plate.itsOkforFood(appetite))
+       {
+           System.out.println(name + " " + "не смог поесть, еды в тарелке очень мало");
+       }
+       else if (fullness)
+       {
+           System.out.println(name + " "+  "уже сыт");
+       }
     }
+}
